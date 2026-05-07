@@ -68,6 +68,3 @@ python -m unittest tests.test_pyro_integration -v
 
 No **Windows**, regra de entrada **TCP** na porta do servidor Pyro (padrão **5002**). O cliente abre ainda uma porta **local** aleatória para o daemon do **listener** (callbacks do servidor); em uso típico em **localhost** isso não exige regra extra; entre PCs distintos, o firewall do cliente não costuma bloquear conexões de entrada iniciadas em resposta ao teu `join_game`.
 
-## Documentação
-
-`plano.md` e `explicacao.md` no repositório, conforme a organização do projeto.
