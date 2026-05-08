@@ -45,7 +45,7 @@ python client/client_ui_pygame.py
 Servidor noutro PC (substitua pelo IP do host do Pyro):
 
 ```bash
-python client/client_ui_pygame.py 192.168.0.10
+python client/client_ui_pygame.py 192.168.56.1
 ```
 
 **Callbacks (3º argumento):** o servidor invoca o teu listener neste IP. Se conectares ao servidor remoto e o Pyro não conseguir voltar a contactar-te, passa o **IP deste cliente** visível a partir do servidor:
@@ -55,16 +55,3 @@ python client/client_ui_pygame.py 192.168.0.10 192.168.0.20
 ```
 
 Em **localhost** isso não é necessário. **VirtualBox NAT:** do guest para o host em Windows costuma ser **`10.0.2.2`**.
-
-## Testes automatizados
-
-Na pasta **`dara`** (dois clientes na mesma máquina, servidor num subprocesso; porta TCP aleatória):
-
-```bash
-python -m unittest tests.test_pyro_integration -v
-```
-
-## Firewall
-
-No **Windows**, regra de entrada **TCP** na porta do servidor Pyro (padrão **5002**). O cliente abre ainda uma porta **local** aleatória para o daemon do **listener** (callbacks do servidor); em uso típico em **localhost** isso não exige regra extra; entre PCs distintos, o firewall do cliente não costuma bloquear conexões de entrada iniciadas em resposta ao teu `join_game`.
-
